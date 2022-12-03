@@ -48,6 +48,9 @@ jobs:
         - name: Run sqlc
           run: make sqlc
 
+        - name: Test
+          run: make test
+
         - name: Get dependencies
           run: |
             go get -v -t -d ./...
@@ -55,9 +58,3 @@ jobs:
                 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
                 dep ensure
             fi
-
-        - name: Build
-          run: go build -v .
-
-        - name: Test
-          run: go test -v .
