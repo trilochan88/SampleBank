@@ -14,12 +14,14 @@ jobs:
 
       services:
         postgres:
-          image: postgres
+          image: postgres:12
           # Provide the password for postgres
           env:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: admin
             POSTGRES_DB: simple_bank
+          ports:
+            - 5432:5432
 
           options: 
             --health-cmd pg_isready
